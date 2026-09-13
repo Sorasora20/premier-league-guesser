@@ -1,0 +1,85 @@
+<div class="game-container">
+  <h1>Premier League Guesser</h1>
+  
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+
+  <% if @game_won %>
+    <div class="success">
+      <h2>Congratulations! You guessed the player!</h2>
+      <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+    </div>
+  <% else %>
+    <div class="guess-form">
+      <%= form_with url: games_guess_path, method: :post, local: true do |f| %>
+        <%= f.text_field :player_name, list: "player-names", placeholder: "Guess a player...", required: true, autocomplete: "off", class: "input-field" %>
+        <datalist id="player-names">
+          <% @players.each do |player| %>
+            <option value="<%= player.name %>">
+          <% end %>
+        </datalist>
+        <%= f.submit "Guess", class: "btn" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="guesses-container">
+    <div class="guesses-header">
+      <div class="header-cell">Name</div>
+      <div class="header-cell">Nationality</div>
+      <div class="header-cell">Club</div>
+      <div class="header-cell">Position</div>
+      <div class="header-cell">Height</div>
+      <div class="header-cell">Age</div>
+      <div class="header-cell">Foot</div>
+    </div>
+    
+    <% @guesses.reverse_each do |guess| %>
+      <div class="guess-row">
+        <!-- Name -->
+        <div class="guess-cell <%= guess.name == @answer_player.name ? 'match' : 'mismatch' %>">
+          <%= guess.name %>
+        </div>
+        
+        <!-- Nationality -->
+        <div class="guess-cell <%= guess.nationality == @answer_player.nationality ? 'match' : 'mismatch' %>">
+          <%= guess.nationality %>
+        </div>
+        
+        <!-- Club -->
+        <div class="guess-cell <%= guess.club == @answer_player.club ? 'match' : 'mismatch' %>">
+          <%= guess.club %>
+        </div>
+        
+        <!-- Position -->
+        <div class="guess-cell <%= guess.position == @answer_player.position ? 'match' : 'mismatch' %>">
+          <%= guess.position %>
+        </div>
+        
+        <!-- Height -->
+        <% if guess.height == @answer_player.height %>
+          <div class="guess-cell match"><%= guess.height %></div>
+        <% else %>
+          <div class="guess-cell mismatch">
+            <%= guess.height %> <%= guess.height > @answer_player.height ? "↓" : "↑" %>
+          </div>
+        <% end %>
+        
+        <!-- Age -->
+        <% if guess.age == @answer_player.age %>
+          <div class="guess-cell match"><%= guess.age %></div>
+        <% else %>
+          <div class="guess-cell mismatch">
+            <%= guess.age %> <%= guess.age > @answer_player.age ? "↓" : "↑" %>
+          </div>
+        <% end %>
+        
+        <!-- Preferred Foot -->
+        <div class="guess-cell <%= guess.preferred_foot == @answer_player.preferred_foot ? 'match' : 'mismatch' %>">
+          <%= guess.preferred_foot %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
