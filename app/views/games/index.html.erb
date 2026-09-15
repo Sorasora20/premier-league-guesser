@@ -25,16 +25,18 @@
   <% end %>
 
   <div class="guesses-container">
-    <div class="guesses-header">
-      <div class="header-cell">Name</div>
-      <div class="header-cell">Nationality</div>
-      <div class="header-cell">Club</div>
-      <div class="header-cell">Position</div>
-      <div class="header-cell">Height</div>
-      <div class="header-cell">Age</div>
-      <div class="header-cell">Foot</div>
-    </div>
-    
+    <%= form_with url: games_hint_path, method: :post, local: true do |f| %>
+      <div class="guesses-header">
+        <div class="header-cell">Name</div>
+        <%= f.button @revealed_hints['nationality'] || "Nationality", type: "submit", name: "attribute", value: "nationality", class: "header-cell hint-btn #{@revealed_hints['nationality'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['nationality'].present?, data: { tooltip: "Click to reveal" } %>
+        <%= f.button @revealed_hints['club'] || "Club", type: "submit", name: "attribute", value: "club", class: "header-cell hint-btn #{@revealed_hints['club'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['club'].present?, data: { tooltip: "Click to reveal" } %>
+        <%= f.button @revealed_hints['position'] || "Position", type: "submit", name: "attribute", value: "position", class: "header-cell hint-btn #{@revealed_hints['position'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['position'].present?, data: { tooltip: "Click to reveal" } %>
+        <%= f.button @revealed_hints['height'] || "Height", type: "submit", name: "attribute", value: "height", class: "header-cell hint-btn #{@revealed_hints['height'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['height'].present?, data: { tooltip: "Click to reveal" } %>
+        <%= f.button @revealed_hints['age'] || "Age", type: "submit", name: "attribute", value: "age", class: "header-cell hint-btn #{@revealed_hints['age'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['age'].present?, data: { tooltip: "Click to reveal" } %>
+        <%= f.button @revealed_hints['foot'] || "Foot", type: "submit", name: "attribute", value: "foot", class: "header-cell hint-btn #{@revealed_hints['foot'] ? 'revealed' : 'tooltip-container'}", disabled: @revealed_hints['foot'].present?, data: { tooltip: "Click to reveal" } %>
+      </div>
+    <% end %>
+
     <% @guesses.reverse_each do |guess| %>
       <div class="guess-row">
         <!-- Name -->
@@ -83,3 +85,5 @@
     <% end %>
   </div>
 </div>
+
+<script src="/javascripts/guess_hint.js"></script>
