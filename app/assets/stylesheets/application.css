@@ -15,6 +15,7 @@ body {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* paddingを含めて幅を計算 */
 }
 
 h1 {
@@ -40,10 +41,30 @@ h1 {
   text-align: center;
 }
 
+/* --- フォーム周りの修正（スマホでも綺麗に並ぶようにflexを調整） --- */
 .guess-form {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 2rem;
+  gap: 0.5rem;
+  flex-wrap: wrap; /* スマホで幅が足りない時は折り返す */
+}
+
+/* Railsのform_withが生成する<form>タグ自体を横並びに */
+.guess-form form {
+  display: flex;
+  flex: 1;
+  min-width: 250px;
+}
+
+/* 独立したReveal Answerボタン（button_to）の形を整える */
+.guess-form form.button_to {
+  flex: 0 1 auto;
+}
+.guess-form form.button_to .btn {
+  border-radius: 4px; /* 単独のボタンなので角を丸める */
+  width: 100%;
 }
 
 .input-field {
@@ -51,7 +72,8 @@ h1 {
   font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 4px 0 0 4px;
-  width: 300px;
+  flex: 1; /* width: 300pxを廃止し、余白を埋めるように変更 */
+  min-width: 0; /* flexbox内で縮めるようにする */
   outline: none;
 }
 
@@ -68,7 +90,9 @@ h1 {
   border-radius: 0 4px 4px 0;
   cursor: pointer;
   transition: background-color 0.2s;
+  white-space: nowrap; /* ボタンの文字を折り返さない */
 }
+
 .success .btn {
   border-radius: 4px;
   margin-top: 10px;
@@ -85,19 +109,24 @@ h1 {
   cursor: pointer;
   font-weight: bold;
   transition: all 0.2s;
+  width: 100%;
+  box-sizing: border-box;
 }
+
 .hint-btn:hover {
   color: white;
   background-color: #2c3e50;
   transform: scale(1.05);
 }
+
 .hint-btn.revealed {
-  background-color: #f1c40f; /* 目立つ色（黄色など）に変更 */
+  background-color: #f1c40f;
   color: #333;
-  cursor: default; /* クリックできる指マークを消す */
+  cursor: default;
   transform: none;
 }
 
+/* --- グリッド（表）周りの修正 --- */
 .guesses-container {
   margin-top: 2rem;
   display: flex;
@@ -129,6 +158,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   font-size: 0.875rem;
+  word-break: break-word;
 }
 
 .guess-cell.match {
@@ -141,35 +171,83 @@ h1 {
   color: white;
 }
 
+/* ツールチップ */
 .tooltip-container {
   position: relative;
 }
 .tooltip-container::after {
-  content: attr(data-tooltip); /* HTMLに書いた文字を引っ張ってくる */
+  content: attr(data-tooltip);
   position: absolute;
-  bottom: 110%; /* ボタンの少し上に配置 */
+  bottom: 110%;
   left: 50%;
-  transform: translateX(-50%); /* 中央揃え */
-  
-  /* デザイン */
+  transform: translateX(-50%);
   background-color: #333;
   color: #fff;
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 12px;
   white-space: nowrap;
-  
-  /* 最初は透明にして隠しておく */
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s, bottom 0.2s; /* ふわっと出すアニメーション */
-  pointer-events: none; /* ツールチップ自体がクリックを邪魔しないようにする */
+  transition: opacity 0.2s, bottom 0.2s;
+  pointer-events: none;
 }
 .tooltip-container:hover::after {
   opacity: 1;
   visibility: visible;
-  bottom: 120%; /* 少し上にフワッと浮き上がる */
+  bottom: 120%;
 }
 .tooltip-container:disabled:hover::after {
   display: none;
+}
+
+
+/* =========================================
+   スマホ用レスポンシブ設定 (画面幅 768px 以下)
+   【カード型折りたたみレイアウト版】
+========================================= */
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .game-container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .guess-form form {
+    min-width: 100%;
+  }
+
+  /* --- ここからが折りたたみの魔法 --- */
+  
+  /* 横スクロールを廃止し、3列のグリッドに変更 */
+  .guesses-header, .guess-row {
+    grid-template-columns: 1fr 1fr 1fr; /* スマホでは3列にする */
+    gap: 4px; /* 隙間を少し狭く */
+  }
+
+  /* 行と行の区切りを分かりやすくする */
+  .guess-row {
+    margin-top: 1rem;
+    border-top: 3px solid #d1d5db; /* 各予想の上に太めの線を引く */
+    padding-top: 1rem;
+  }
+
+  /* 1つ目の要素（Name）だけ、3列分すべてを使って1行を独占する */
+  .guesses-header > :nth-child(1),
+  .guess-row > :nth-child(1) {
+    grid-column: span 3;
+    font-size: 1.1rem; /* 名前は大事なので少し大きく */
+  }
+
+  /* スマホ画面に合わせて文字サイズや余白を小さく調整 */
+  .header-cell, .guess-cell {
+    font-size: 0.75rem; /* 小さめの文字にして画面に収める */
+    padding: 0.5rem 0.2rem;
+  }
 }

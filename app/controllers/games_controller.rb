@@ -10,6 +10,7 @@ class GamesController < ApplicationController
       session[:answer_player_id] = answer_id
       session[:guesses] = []
       session[:revealed_hints] = {}
+      session[:is_revealed] = false
     end
 
     @answer_player = Player.find_by(id: answer_id)
@@ -18,6 +19,7 @@ class GamesController < ApplicationController
     @revealed_hints = session[:revealed_hints] || {}
     @players = Player.order(:name)
     @game_won = @guesses.last&.id == @answer_player&.id
+    @player_revealed = session[:is_revealed] || false
   end
 
   def guess
@@ -36,6 +38,7 @@ class GamesController < ApplicationController
     session[:answer_player_id] = nil
     session[:guesses] = []
     session[:revealed_hints] = {}
+    session[:is_revealed] = false
     redirect_to root_path
   end
 
@@ -60,6 +63,11 @@ class GamesController < ApplicationController
 
     session[:revealed_hints][requested_attribute] = hint_value
     
+    redirect_to root_path
+  end
+
+  def reveal
+    session[:is_revealed] = true
     redirect_to root_path
   end
 
