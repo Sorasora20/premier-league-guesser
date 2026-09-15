@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post "games/guess", to: "games#guess"
   post "games/reset", to: "games#reset"
   post "games/hint", to: "games#hint"
+  post "games/reveal", to: "games#reveal"
 end

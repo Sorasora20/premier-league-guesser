@@ -1,5 +1,5 @@
 <div class="game-container">
-  <h1>Premier League Guesser</h1>
+  <h1>Premier League Guesser 26/27</h1>
   
   <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
@@ -8,6 +8,11 @@
   <% if @game_won %>
     <div class="success">
       <h2>Congratulations! You guessed the player!</h2>
+      <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+    </div>
+  <% elsif @player_revealed %>
+    <div class="success">
+      <h2>The player is <%= @answer_player.name %></h2>
       <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
     </div>
   <% else %>
@@ -21,6 +26,7 @@
         </datalist>
         <%= f.submit "Guess", class: "btn" %>
       <% end %>
+      <%= button_to "Reveal Answer", games_reveal_path, method: :post, class: "btn" %>
     </div>
   <% end %>
 
@@ -85,5 +91,3 @@
     <% end %>
   </div>
 </div>
-
-<script src="/javascripts/guess_hint.js"></script>
