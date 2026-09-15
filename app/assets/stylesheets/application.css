@@ -78,6 +78,26 @@ h1 {
   background-color: #2563eb;
 }
 
+.hint-btn {
+  background-color: #34495e;
+  border: 1px solid #2c3e50;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+.hint-btn:hover {
+  color: white;
+  background-color: #2c3e50;
+  transform: scale(1.05);
+}
+.hint-btn.revealed {
+  background-color: #f1c40f; /* 目立つ色（黄色など）に変更 */
+  color: #333;
+  cursor: default; /* クリックできる指マークを消す */
+  transform: none;
+}
+
 .guesses-container {
   margin-top: 2rem;
   display: flex;
@@ -119,4 +139,37 @@ h1 {
 .guess-cell.mismatch {
   background-color: #9ca3af;
   color: white;
+}
+
+.tooltip-container {
+  position: relative;
+}
+.tooltip-container::after {
+  content: attr(data-tooltip); /* HTMLに書いた文字を引っ張ってくる */
+  position: absolute;
+  bottom: 110%; /* ボタンの少し上に配置 */
+  left: 50%;
+  transform: translateX(-50%); /* 中央揃え */
+  
+  /* デザイン */
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  
+  /* 最初は透明にして隠しておく */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, bottom 0.2s; /* ふわっと出すアニメーション */
+  pointer-events: none; /* ツールチップ自体がクリックを邪魔しないようにする */
+}
+.tooltip-container:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: 120%; /* 少し上にフワッと浮き上がる */
+}
+.tooltip-container:disabled:hover::after {
+  display: none;
 }
