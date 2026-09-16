@@ -17,6 +17,7 @@
     </div>
   <% else %>
     <div class="guess-form">
+      <%= button_to "Reveal Answer", games_reveal_path, method: :post, class: "btn" %>
       <%= form_with url: games_guess_path, method: :post, local: true do |f| %>
         <%= f.text_field :player_name, list: "player-names", placeholder: "Guess a player...", required: true, autocomplete: "off", class: "input-field" %>
         <datalist id="player-names">
@@ -26,7 +27,6 @@
         </datalist>
         <%= f.submit "Guess", class: "btn" %>
       <% end %>
-      <%= button_to "Reveal Answer", games_reveal_path, method: :post, class: "btn" %>
     </div>
   <% end %>
 
