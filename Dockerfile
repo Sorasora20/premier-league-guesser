@@ -14,6 +14,9 @@ RUN bundle install
 # プロジェクト全体のコピー
 COPY . /app
 
+# アセットのプリコンパイル (Production環境用)
+RUN SECRET_KEY_BASE_DUMMY=1 bundle exec rails assets:precompile
+
 # entrypoint.sh のコピーと設定
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
