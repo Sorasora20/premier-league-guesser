@@ -1,16 +1,20 @@
 class GamesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:guess, :reset]
+  skip_before_action :verify_authenticity_token, only: [:start, :guess, :reset]
+
+  def menu
+  end
+
+  def start
+    difficulty = params[:difficulty] || 'NORMAL'
+    setup_game(difficulty)
+    redirect_to games_play_path
+  end
 
   def index
-    # Initialize game state if not present
     answer_id = session[:answer_player_id]
     if answer_id.nil? || Player.find_by(id: answer_id).nil?
-      # Pick a random player
-      answer_id = Player.order("RANDOM()").first&.id
-      session[:answer_player_id] = answer_id
-      session[:guesses] = []
-      session[:revealed_hints] = {}
-      session[:is_revealed] = false
+      redirect_to root_path
+      return
     end
 
     @answer_player = Player.find_by(id: answer_id)
@@ -31,15 +35,13 @@ class GamesController < ApplicationController
     else
       flash[:alert] = "Player not found."
     end
-    redirect_to root_path
+    redirect_to games_play_path
   end
 
   def reset
-    session[:answer_player_id] = nil
-    session[:guesses] = []
-    session[:revealed_hints] = {}
-    session[:is_revealed] = false
-    redirect_to root_path
+    difficulty = session[:difficulty] || 'NORMAL'
+    setup_game(difficulty)
+    redirect_to games_play_path
   end
 
   def hint
@@ -63,12 +65,37 @@ class GamesController < ApplicationController
 
     session[:revealed_hints][requested_attribute] = hint_value
     
-    redirect_to root_path
+    redirect_to games_play_path
   end
 
   def reveal
     session[:is_revealed] = true
-    redirect_to root_path
+    redirect_to games_play_path
   end
 
+  private
+
+  def setup_game(difficulty)
+    session[:difficulty] = difficulty
+    
+    tier_map = {
+      'EASY' => ['S'],
+      'NORMAL' => ['A'],
+      'HARD' => ['B'],
+      'VERY HARD' => ['C'],
+      'EXTREME' => ['D', 'Unranked']
+    }
+    
+    target_tiers = tier_map[difficulty] || ['A']
+    
+    possible_players = Player.all.select { |p| target_tiers.include?(p.tier) }
+    possible_players = Player.all if possible_players.empty?
+    
+    answer_id = possible_players.sample&.id
+    
+    session[:answer_player_id] = answer_id
+    session[:guesses] = []
+    session[:revealed_hints] = {}
+    session[:is_revealed] = false
+  end
 end

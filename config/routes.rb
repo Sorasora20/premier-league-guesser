@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  root "games#index"
+  root "games#menu"
+  get "games/play", to: "games#index"
+  post "games/start", to: "games#start"
   post "games/guess", to: "games#guess"
   post "games/reset", to: "games#reset"
   post "games/hint", to: "games#hint"
