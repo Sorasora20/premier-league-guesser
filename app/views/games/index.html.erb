@@ -1,7 +1,7 @@
 <div class="game-container" style="position: relative;">
   <%= link_to "← Back to Menu", root_path, class: "back-btn" %>
   
-  <h1 class="glow-text" style="text-align: center; font-size: 2.5rem; margin-top: 10px;">Premier League Guesser 26/27</h1>
+  <h1 class="glow-text" style="text-align: center;">Premier League Guesser 26/27</h1>
   
   <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
@@ -28,7 +28,7 @@
         <%= f.text_field :player_name, list: "player-names", placeholder: "Guess a player...", required: true, autocomplete: "off", class: "input-field" %>
         <datalist id="player-names">
           <% @players.each do |player| %>
-            <option value="<%= player.name %>">
+            <option value="<%= player.name %>"><%= ActiveSupport::Inflector.transliterate(player.name) %></option>
           <% end %>
         </datalist>
         <%= f.submit "Guess", class: "btn" %>

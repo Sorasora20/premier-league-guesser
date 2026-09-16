@@ -28,6 +28,15 @@ class GamesController < ApplicationController
 
   def guess
     player = Player.find_by(name: params[:player_name])
+    
+    # フォールバック: アクセントを除去した名前で検索（例: Ruben Dias で Rúben Dias を見つける）
+    if player.nil?
+      normalized_input = ActiveSupport::Inflector.transliterate(params[:player_name].to_s).downcase
+      player = Player.all.find do |p|
+        ActiveSupport::Inflector.transliterate(p.name).downcase == normalized_input
+      end
+    end
+
     if player
       current_guesses = session[:guesses] || []
       current_guesses << player.id unless current_guesses.include?(player.id)

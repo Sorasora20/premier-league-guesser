@@ -9,10 +9,10 @@ class Player < ApplicationRecord
     return 'Unranked' if popularity.nil?
 
     case popularity
-    when 20.0..Float::INFINITY then 'S'
-    when 10.0...20.0 then 'A'
-    when 5.0...10.0 then 'B'
-    when 1.0...5.0 then 'C'
+    when 10.0..Float::INFINITY then 'S'
+    when 3.0...10.0 then 'A'
+    when 0.5...3.0 then 'B'
+    when 0.1...0.5 then 'C'
     else 'D'
     end
   end
