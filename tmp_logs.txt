@@ -1,0 +1,568 @@
+web-1  | => Booting Puma
+web-1  | => Rails 8.1.3.1 application starting in development 
+web-1  | => Run `bin/rails server --help` for more startup options
+web-1  | Puma starting in single mode...
+web-1  | * Puma version: 8.0.2 ("Into the Arena")
+web-1  | * Ruby version: ruby 3.3.12 (2026-07-16 revision 0581089df9) [x86_64-linux]
+web-1  | *  Min threads: 3
+web-1  | *  Max threads: 3
+web-1  | *  Environment: development
+web-1  | *          PID: 1
+web-1  | * Listening on http://0.0.0.0:3000
+web-1  | Use Ctrl-C to stop
+web-1  | Started GET "/" for 172.19.0.1 at 2026-09-13 20:13:25 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   [1m[35m (7.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='App'*/[0m
+web-1  |   [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='App'*/[0m
+web-1  |   [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+web-1  | Processing by Rails::WelcomeController#index as HTML
+web-1  |   Rendering /usr/local/bundle/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+web-1  |   Rendered /usr/local/bundle/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+web-1  | Completed 200 OK in 14ms (Views: 4.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  | Started GET "/" for 172.19.0.1 at 2026-09-13 20:14:01 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by Rails::WelcomeController#index as HTML
+web-1  |   Rendering /usr/local/bundle/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+web-1  |   Rendered /usr/local/bundle/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+web-1  | Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  | - Gracefully stopping, waiting for requests to finish
+web-1  | Exiting
+web-1  | => Booting Puma
+web-1  | => Rails 8.1.3.1 application starting in development 
+web-1  | => Run `bin/rails server --help` for more startup options
+web-1  | Puma starting in single mode...
+web-1  | * Puma version: 8.0.2 ("Into the Arena")
+web-1  | * Ruby version: ruby 3.3.12 (2026-07-16 revision 0581089df9) [x86_64-linux]
+web-1  | *  Min threads: 3
+web-1  | *  Max threads: 3
+web-1  | *  Environment: development
+web-1  | *          PID: 1
+web-1  | * Listening on http://0.0.0.0:3000
+web-1  | Use Ctrl-C to stop
+web-1  | Started GET "/" for 172.19.0.1 at 2026-09-13 20:39:51 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='App'*/[0m
+web-1  | Processing by GamesController#index as HTML
+web-1  |   [1m[36mPlayer Load (20.8ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY RANDOM() LIMIT 1 /*action='index',application='App',controller='games'*/[0m
+web-1  |   ↳ app/controllers/games_controller.rb:6:in `index'
+web-1  |   [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."id" = 1 LIMIT 1 /*action='index',application='App',controller='games'*/[0m
+web-1  |   ↳ app/controllers/games_controller.rb:10:in `index'
+web-1  |   Rendering layout layouts/application.html.erb
+web-1  |   Rendering games/index.html.erb within layouts/application
+web-1  |   [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" ORDER BY "players"."name" ASC /*action='index',application='App',controller='games'*/[0m
+web-1  |   ↳ app/views/games/index.html.erb:19
+web-1  |   Rendered games/index.html.erb within layouts/application (Duration: 4.1ms | GC: 0.0ms)
+web-1  |   Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+web-1  | Completed 200 OK in 85ms (Views: 14.1ms | ActiveRecord: 28.8ms (3 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 20:39:58 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Bukayo Saka", "commit"=>"Guess"}
+web-1  | Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | json (3.0.2) lib/json/common.rb:296:in `parse'
+web-1  | activesupport (8.1.3.1) lib/active_support/json/decoding.rb:25:in `decode'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:129:in `deserialize_from_json'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:45:in `deserialize_with_metadata'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:261:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:33:in `block in read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:61:in `block (2 levels) in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `block in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:32:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:245:in `block (3 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:47:in `block in catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:244:in `block (2 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:243:in `block in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:242:in `decrypt_and_verify'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:689:in `parse'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:515:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:121:in `get_cookie'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:96:in `block (2 levels) in unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:95:in `block in unpacked_cookie_data'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch_header'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:94:in `unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:88:in `block in extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:87:in `extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:67:in `block in id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:88:in `id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:337:in `current_session_id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:343:in `session_exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:233:in `exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:256:in `load_for_read!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:115:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:328:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:577:in `block in real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:597:in `csrf_token_hmac'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:591:in `global_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:558:in `compare_with_global_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:531:in `valid_authenticity_token?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:478:in `block in any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:472:in `verified_request?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:401:in `verify_authenticity_token'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:179:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:180:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `each'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `block in instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `instrument'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+web-1  | activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in `process'
+web-1  | actionview (8.1.3.1) lib/action_view/rendering.rb:40:in `process'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `each'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+web-1  | rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in `call'
+web-1  | rack (3.2.7) lib/rack/etag.rb:29:in `call'
+web-1  | rack (3.2.7) lib/rack/conditional_get.rb:44:in `call'
+web-1  | rack (3.2.7) lib/rack/head.rb:15:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in `context'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+web-1  | activerecord (8.1.3.1) lib/active_record/migration.rb:671:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:132:in `call_app'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:19:in `block in call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `catch'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:41:in `call_app'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:29:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+web-1  | rack (3.2.7) lib/rack/method_override.rb:28:in `call'
+web-1  | rack (3.2.7) lib/rack/runtime.rb:24:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+web-1  | rack (3.2.7) lib/rack/sendfile.rb:131:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine.rb:534:in `call'
+web-1  | puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+web-1  | puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+web-1  | puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+web-1  | puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+web-1  | puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 20:39:58 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
+web-1  | Started GET "/.well-known/appspecific/com.chrome.devtools.json" for 172.19.0.1 at 2026-09-13 20:40:06 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/.well-known/appspecific/com.chrome.devtools.json"):
+web-1  |   
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 20:40:29 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Martin Ødegaard", "commit"=>"Guess"}
+web-1  | Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | json (3.0.2) lib/json/common.rb:296:in `parse'
+web-1  | activesupport (8.1.3.1) lib/active_support/json/decoding.rb:25:in `decode'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:129:in `deserialize_from_json'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:45:in `deserialize_with_metadata'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:261:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:33:in `block in read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:61:in `block (2 levels) in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `block in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:32:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:245:in `block (3 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:47:in `block in catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:244:in `block (2 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:243:in `block in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:242:in `decrypt_and_verify'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:689:in `parse'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:515:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:121:in `get_cookie'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:96:in `block (2 levels) in unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:95:in `block in unpacked_cookie_data'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch_header'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:94:in `unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:88:in `block in extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:87:in `extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:67:in `block in id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:88:in `id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:337:in `current_session_id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:343:in `session_exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:233:in `exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:256:in `load_for_read!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:115:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:328:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:577:in `block in real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:597:in `csrf_token_hmac'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:591:in `global_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:558:in `compare_with_global_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:531:in `valid_authenticity_token?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:478:in `block in any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:472:in `verified_request?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:401:in `verify_authenticity_token'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:179:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:180:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `each'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `block in instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `instrument'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+web-1  | activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in `process'
+web-1  | actionview (8.1.3.1) lib/action_view/rendering.rb:40:in `process'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `each'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+web-1  | rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in `call'
+web-1  | rack (3.2.7) lib/rack/etag.rb:29:in `call'
+web-1  | rack (3.2.7) lib/rack/conditional_get.rb:44:in `call'
+web-1  | rack (3.2.7) lib/rack/head.rb:15:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in `context'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+web-1  | activerecord (8.1.3.1) lib/active_record/migration.rb:671:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:132:in `call_app'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:19:in `block in call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `catch'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:41:in `call_app'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:29:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+web-1  | rack (3.2.7) lib/rack/method_override.rb:28:in `call'
+web-1  | rack (3.2.7) lib/rack/runtime.rb:24:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+web-1  | rack (3.2.7) lib/rack/sendfile.rb:131:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine.rb:534:in `call'
+web-1  | puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+web-1  | puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+web-1  | puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+web-1  | puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+web-1  | puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 20:40:29 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 20:41:03 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Martin Ødegaard", "commit"=>"Guess"}
+web-1  | Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | json (3.0.2) lib/json/common.rb:296:in `parse'
+web-1  | activesupport (8.1.3.1) lib/active_support/json/decoding.rb:25:in `decode'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:129:in `deserialize_from_json'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/metadata.rb:45:in `deserialize_with_metadata'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:261:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:33:in `block in read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:61:in `block (2 levels) in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:60:in `block in catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:59:in `catch_rotation_error'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/rotator.rb:32:in `read_message'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:245:in `block (3 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:47:in `block in catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:46:in `catch_and_ignore'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:244:in `block (2 levels) in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:243:in `block in decrypt_and_verify'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:54:in `block in catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch'
+web-1  | activesupport (8.1.3.1) lib/active_support/messages/codec.rb:53:in `catch_and_raise'
+web-1  | activesupport (8.1.3.1) lib/active_support/message_encryptor.rb:242:in `decrypt_and_verify'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:689:in `parse'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:515:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:121:in `get_cookie'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:96:in `block (2 levels) in unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:95:in `block in unpacked_cookie_data'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch'
+web-1  | rack (3.2.7) lib/rack/request.rb:112:in `fetch_header'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:94:in `unpacked_cookie_data'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:88:in `block in extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/abstract_store.rb:55:in `stale_session_check!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/session/cookie_store.rb:87:in `extract_session_id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:67:in `block in id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:66:in `id'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:88:in `id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:337:in `current_session_id'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:343:in `session_exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:233:in `exists?'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:256:in `load_for_read!'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/request/session.rb:115:in `[]'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:328:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:577:in `block in real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `fetch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:576:in `real_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:597:in `csrf_token_hmac'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:591:in `global_csrf_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:558:in `compare_with_global_token'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:531:in `valid_authenticity_token?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:478:in `block in any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:477:in `any_authenticity_token_valid?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:472:in `verified_request?'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/request_forgery_protection.rb:401:in `verify_authenticity_token'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:362:in `block in make_lambda'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:179:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:36:in `block (2 levels) in <module:Callbacks>'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:180:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `block in invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `each'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:560:in `invoke_before'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:119:in `block in run_callbacks'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in `block in process_action'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `block in instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+web-1  | activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in `instrument'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+web-1  | activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in `process_action'
+web-1  | actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in `process'
+web-1  | actionview (8.1.3.1) lib/action_view/rendering.rb:40:in `process'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in `dispatch'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in `block in serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in `block in recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `each'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in `recognize'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in `serve'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in `call'
+web-1  | rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in `call'
+web-1  | rack (3.2.7) lib/rack/etag.rb:29:in `call'
+web-1  | rack (3.2.7) lib/rack/conditional_get.rb:44:in `call'
+web-1  | rack (3.2.7) lib/rack/head.rb:15:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in `call'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in `context'
+web-1  | rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in `call'
+web-1  | activerecord (8.1.3.1) lib/active_record/migration.rb:671:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in `block in call'
+web-1  | activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in `call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:132:in `call_app'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:19:in `block in call'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `catch'
+web-1  | web-console (4.3.0) lib/web_console/middleware.rb:17:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in `call'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:41:in `call_app'
+web-1  | railties (8.1.3.1) lib/rails/rack/logger.rb:29:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in `call'
+web-1  | rack (3.2.7) lib/rack/method_override.rb:28:in `call'
+web-1  | rack (3.2.7) lib/rack/runtime.rb:24:in `call'
+web-1  | activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in `call'
+web-1  | propshaft (1.3.2) lib/propshaft/server.rb:37:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in `call'
+web-1  | rack (3.2.7) lib/rack/sendfile.rb:131:in `call'
+web-1  | actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in `call'
+web-1  | railties (8.1.3.1) lib/rails/engine.rb:534:in `call'
+web-1  | puma (8.0.2) lib/puma/configuration.rb:305:in `call'
+web-1  | puma (8.0.2) lib/puma/response.rb:79:in `block in handle_request'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:434:in `with_force_shutdown'
+web-1  | puma (8.0.2) lib/puma/response.rb:78:in `handle_request'
+web-1  | puma (8.0.2) lib/puma/server.rb:508:in `process_client'
+web-1  | puma (8.0.2) lib/puma/server.rb:263:in `block in run'
+web-1  | puma (8.0.2) lib/puma/thread_pool.rb:246:in `block in spawn_thread'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 20:41:03 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 21:00:19 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Bukayo Saka", "commit"=>"Guess"}
+web-1  |   [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."name" = 'Bukayo Saka' LIMIT 1 /*action='guess',application='App',controller='games'*/[0m
+web-1  |   ↳ app/controllers/games_controller.rb:19:in `guess'
+web-1  | Completed 500 Internal Server Error in 39ms (ActiveRecord: 8.8ms (1 query, 0 cached) | GC: 2.6ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | app/controllers/games_controller.rb:21:in `guess'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 21:00:19 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 21:00:39 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Bukayo Saka", "commit"=>"Guess"}
+web-1  |   [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."name" = 'Bukayo Saka' LIMIT 1 /*action='guess',application='App',controller='games'*/[0m
+web-1  |   ↳ app/controllers/games_controller.rb:19:in `guess'
+web-1  | Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | app/controllers/games_controller.rb:21:in `guess'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 21:00:39 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
+web-1  | Started POST "/games/guess" for 172.19.0.1 at 2026-09-13 21:00:44 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  | Processing by GamesController#guess as HTML
+web-1  |   Parameters: {"authenticity_token"=>"[FILTERED]", "player_name"=>"Bukayo Saka", "commit"=>"Guess"}
+web-1  |   [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players" WHERE "players"."name" = 'Bukayo Saka' LIMIT 1 /*action='guess',application='App',controller='games'*/[0m
+web-1  |   ↳ app/controllers/games_controller.rb:19:in `guess'
+web-1  | Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+web-1  | 
+web-1  | 
+web-1  |   
+web-1  | ArgumentError (wrong number of arguments (given 2, expected 1)):
+web-1  |   
+web-1  | app/controllers/games_controller.rb:21:in `guess'
+web-1  | Started GET "/favicon.ico" for 172.19.0.1 at 2026-09-13 21:00:45 +0000
+web-1  | Cannot render console from 172.19.0.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1, ::ffff:127.0.0.0/::ffff:127.255.255.255
+web-1  |   
+web-1  | ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+web-1  |   
