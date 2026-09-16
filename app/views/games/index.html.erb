@@ -1,5 +1,7 @@
-<div class="game-container">
-  <h1>Premier League Guesser 26/27</h1>
+<div class="game-container" style="position: relative;">
+  <%= link_to "← Back to Menu", root_path, class: "back-btn" %>
+  
+  <h1 class="glow-text" style="text-align: center; font-size: 2.5rem; margin-top: 10px;">Premier League Guesser 26/27</h1>
   
   <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
@@ -8,12 +10,16 @@
   <% if @game_won %>
     <div class="success">
       <h2>Congratulations! You guessed the player!</h2>
-      <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+      <div class="action-buttons" style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+      </div>
     </div>
   <% elsif @player_revealed %>
     <div class="success">
       <h2>The player is <%= @answer_player.name %></h2>
-      <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+      <div class="action-buttons" style="display: flex; gap: 10px; justify-content: center; margin-top: 15px;">
+        <%= button_to "Play Again", games_reset_path, method: :post, class: "btn" %>
+      </div>
     </div>
   <% else %>
     <div class="guess-form">

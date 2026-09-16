@@ -1,0 +1,52 @@
+<div class="menu-container">
+  <div class="menu-header">
+    <h1 class="glow-text">Premier League Guesser 26/27</h1>
+    <p class="subtitle">Select your difficulty to start the game</p>
+  </div>
+
+  <div class="difficulty-grid">
+    <%= form_with url: games_start_path, method: :post, local: true, class: "difficulty-form" do |f| %>
+      
+      <button type="submit" name="difficulty" value="EASY" class="diff-card easy">
+        <div class="diff-icon">🌟</div>
+        <div class="diff-content">
+          <h3>EASY</h3>
+          <p>Tier S (Superstars & Most Popular)</p>
+        </div>
+      </button>
+
+      <button type="submit" name="difficulty" value="NORMAL" class="diff-card normal">
+        <div class="diff-icon">🔥</div>
+        <div class="diff-content">
+          <h3>NORMAL</h3>
+          <p>Tier A (Well-known Starters)</p>
+        </div>
+      </button>
+
+      <button type="submit" name="difficulty" value="HARD" class="diff-card hard">
+        <div class="diff-icon">⚡</div>
+        <div class="diff-content">
+          <h3>HARD</h3>
+          <p>Tier B (Regular Squad Players)</p>
+        </div>
+      </button>
+
+      <button type="submit" name="difficulty" value="VERY HARD" class="diff-card very-hard">
+        <div class="diff-icon">💀</div>
+        <div class="diff-content">
+          <h3>VERY HARD</h3>
+          <p>Tier C (Rotational/Bench Players)</p>
+        </div>
+      </button>
+
+      <button type="submit" name="difficulty" value="EXTREME" class="diff-card extreme">
+        <div class="diff-icon">👽</div>
+        <div class="diff-content">
+          <h3>EXTREME</h3>
+          <p>Tier D (Youth & Unknowns)</p>
+        </div>
+      </button>
+
+    <% end %>
+  </div>
+</div>

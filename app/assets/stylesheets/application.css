@@ -11,10 +11,12 @@ body {
 .game-container {
   max-width: 1000px;
   width: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box; /* paddingを含めて幅を計算 */
 }
 
@@ -70,36 +72,42 @@ h1 {
 .input-field {
   padding: 0.75rem;
   font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px 0 0 4px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px 0 0 8px;
   flex: 1; /* width: 300pxを廃止し、余白を埋めるように変更 */
   min-width: 0; /* flexbox内で縮めるようにする */
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .input-field:focus {
-  border-color: #3b82f6;
+  border-color: #8b5cf6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
 }
 
 .btn {
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  background-color: #3b82f6;
+  font-weight: bold;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
   color: white;
   border: none;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 8px 8px 0;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
   white-space: nowrap; /* ボタンの文字を折り返さない */
 }
 
-.success .btn {
-  border-radius: 4px;
+.success .btn, .action-buttons .btn {
+  border-radius: 8px;
   margin-top: 10px;
 }
 
 .btn:hover {
-  background-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px -2px rgba(59, 130, 246, 0.4);
 }
 
 .hint-btn {
@@ -115,8 +123,8 @@ h1 {
 
 .hint-btn:hover {
   color: white;
-  background-color: #2c3e50;
-  transform: scale(1.05);
+  background-color: #1f2937;
+  transform: translateY(-2px);
 }
 
 .hint-btn.revealed {
@@ -141,6 +149,9 @@ h1 {
 }
 
 .header-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: bold;
   text-align: center;
   padding: 0.5rem;
@@ -162,12 +173,13 @@ h1 {
 }
 
 .guess-cell.match {
-  background-color: #10b981;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
   color: white;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.2);
 }
 
 .guess-cell.mismatch {
-  background-color: #9ca3af;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   color: white;
 }
 
@@ -251,3 +263,125 @@ h1 {
     padding: 0.5rem 0.2rem;
   }
 }
+
+/* =========================================
+   Menu / Difficulty Selection Screen
+========================================= */
+
+.menu-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.glow-text {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.5rem 0;
+  animation: pulse-glow 3s infinite alternate;
+}
+
+.back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  color: #6b7280;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #3b82f6;
+}
+
+@keyframes pulse-glow {
+  from { text-shadow: 0 0 10px rgba(59, 130, 246, 0.2); }
+  to { text-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.difficulty-grid {
+  width: 100%;
+}
+
+.difficulty-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+}
+
+.diff-card {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.diff-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+.diff-icon {
+  font-size: 2.5rem;
+  margin-right: 1.5rem;
+}
+
+.diff-content h3 {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.4rem;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.diff-content p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+/* Card Specific Styling */
+.diff-card.easy { border-left: 5px solid #10b981; }
+.diff-card.easy:hover { background: linear-gradient(90deg, rgba(16,185,129,0.1) 0%, rgba(255,255,255,0.8) 100%); }
+
+.diff-card.normal { border-left: 5px solid #3b82f6; }
+.diff-card.normal:hover { background: linear-gradient(90deg, rgba(59,130,246,0.1) 0%, rgba(255,255,255,0.8) 100%); }
+
+.diff-card.hard { border-left: 5px solid #f59e0b; }
+.diff-card.hard:hover { background: linear-gradient(90deg, rgba(245,158,11,0.1) 0%, rgba(255,255,255,0.8) 100%); }
+
+.diff-card.very-hard { border-left: 5px solid #ef4444; }
+.diff-card.very-hard:hover { background: linear-gradient(90deg, rgba(239,68,68,0.1) 0%, rgba(255,255,255,0.8) 100%); }
+
+.diff-card.extreme { border-left: 5px solid #8b5cf6; }
+.diff-card.extreme:hover { background: linear-gradient(90deg, rgba(139,92,246,0.1) 0%, rgba(255,255,255,0.8) 100%); }
